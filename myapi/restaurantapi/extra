@@ -1,0 +1,105 @@
+Storage part of application is database
+
+SQl  / NoSql
+
+SQl
+rno | hindi  | english  | Computer
+ 1  |  80    |          |
+ 2  |        |    80    |
+ 3  |  80    |          |    80
+
+ NoSql
+ [
+     {
+         rno:1,
+         subject:[
+             {id:1,name:hindi}
+         ],
+         hindi:80
+     },
+     {
+         rno:2,
+         english:80
+     },
+     {
+         rno:3,
+         hindi:80,
+         Computer:80
+     }
+ ]
+
+
+ SQl                    NoSql
+ ----------------------------------
+ database               Database
+ table                  collections
+ row                    document
+
+
+ //////////////////////////////////////////////////
+
+ mongodb.com > software > coummity server > download
+
+######Start mongodb server#####
+> go inside the bin folder using cmd
+> type 'mongod'
+> this will start mongodb server on port 27017
+
+####Start the client#####
+> go inside the bin folder using cmd
+> type 'mongo'
+> this will start the mongo client 
+
+
+???????????///////////////////////
+show dbs    > show all the databasis
+use databasename > to create any database
+db.students.insert({name:'John',class:'UI'}) > create collection/insert data
+show dbs > you will the databse you have created
+
+use dbname   > to go inside the database
+show collections > this will show all the collections(table) in that database
+db.collectionname.find()  > select all the records from that collection
+
+{ "_id" : ObjectId("5f40fcdd858a1ecf3b4787e0"), "name" : "John", "class" : "UI" }
+
+** _id is primary Key
+unique key / no duplicate value
+
+
+db.students.insert({_id:1, name:'Alvin',class:'React'})
+db.students.insert({_id:2, name:'Zoe',class:'Node'})
+
+db.students.insert({_id:3, name:'Aakash',class:'Node'})
+
+db.city.find().pretty() >>> can can be seen in better form but only use in console
+
+////Find with condition////////
+db.restaurant.find({_id:"5"}).pretty()
+db.restaurant.find({_id:"5",city:"3"}).pretty()
+
+db.restaurant.find({cost:230}).pretty()
+
+db.restaurant.find({"city":"1","type.mealtype":"4"}).pretty()
+
+db.restaurant.find({"city":"1","type.mealtype":"4"}).sort({cost:1})
+
+
+db.restaurant.find({cost:{$gt:500}}).pretty()
+db.restaurant.find({cost:{$lt:300}}).pretty()
+
+db.restaurant.find({cost:{$gt:320,$lt:500}}).sort({cost:-1}).pretty()
+
+
+////////Global Package//////
+> Need admin access to install
+> only very few package go globally
+> global package will not add in package.json
+#window
+> open cmd as admin
+> npm i -g nodemon
+
+
+#mac
+> open terminal
+> sudo npm i -g nodemon
