@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
-const port = 8900;
+const port = process.env.PORT || 8900;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
-const mongoUrl = "mongodb://localhost:27017";
+const mongoUrl = "mongodb+srv://pushpeshpujan:pushpesh@1996@cluster0.5epak.mongodb.net/restaurants?retryWrites=true&w=majority";
+//const mongoUrl="mongodb://localhost:27017";
+
 const cors = require('cors');
 const bodyParser = require('body-parser');
 let db;

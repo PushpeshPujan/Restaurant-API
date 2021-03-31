@@ -2,7 +2,7 @@ url>
 (Get) http://localhost:5000/api/restaurantsearchpage
 
 
-db.restaurant.insertMany(
+db.restaurantData.insertMany(
 [
     {
         "_id" : "1",
